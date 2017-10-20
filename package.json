@@ -1,0 +1,23 @@
+{
+  "name": "clean-javascript",
+  "version": "1.0.0",
+  "description": "클린 코드를 작성하기 위한 클래스",
+  "main": "app.js",
+  "dependencies": {
+    "nodemailer": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wayne-kim/Clean-JavaScript.git"
+  },
+  "author": "ag_dubs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wayne-kim/Clean-JavaScript/issues"
+  },
+  "homepage": "https://github.com/wayne-kim/Clean-JavaScript#readme"
+}

@@ -31,18 +31,18 @@ class TypeChecker {
       if(typeof type == "function"){
         if(!v instanceof type)
           throw Error(`허용되지 않은 타입입니다. ${type.name} 타입을 입력하세요.`);
-        
-        this[name] = v;
+
+        this["get"+name.charAt(0).toUpperCase() + name.slice(1)] = v;
       } else if(typeof type == "object"){
         if(typeof v != "object")
           throw Error(`허용되지 않은 타입입니다. ${type} 타입을 입력하세요.`);
       
-        this[name] = v;
+        this["get"+name.charAt(0).toUpperCase() + name.slice(1)] = v;
       } else {
         if(typeof v != type)
           throw Error(`허용되지 않은 타입입니다. ${type} 타입을 입력하세요.`);
         
-        this[name] = v;
+        this["get"+name.charAt(0).toUpperCase() + name.slice(1)] = v;
       } 
     })
   }
