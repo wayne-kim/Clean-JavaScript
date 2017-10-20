@@ -1,5 +1,5 @@
 /*
-  강타입과 getter /setter를 좋아하는 덕후들이 사용할 만한 패턴
+  강타입과 getter/setter를 좋아하는 덕후들이 사용할 만한 패턴
   
   사용법은 아주 간단하다.
   1. TypeChecker 클래스를 상속하고
@@ -28,15 +28,19 @@
 class TypeChecker {
   setType(name, type){
     this.__defineSetter__("set"+name.charAt(0).toUpperCase() + name.slice(1), function(v){
-      if(typeof type == "function"){
-        if(!v instanceof type)
+      //object, function, 기본 자료형 순서
+      
+      if(typeof type == "object"){
+        if(typeof v != "object")
+          throw Error(`허용되지 않은 타입입니다. Object 타입을 입력하세요.`);
+      
+        this["get"+name.charAt(0).toUpperCase() + name.slice(1)] = v;
+      } else if(typeof type == "function"){
+        let result = v instanceof type; 
+        
+        if(!result)
           throw Error(`허용되지 않은 타입입니다. ${type.name} 타입을 입력하세요.`);
 
-        this["get"+name.charAt(0).toUpperCase() + name.slice(1)] = v;
-      } else if(typeof type == "object"){
-        if(typeof v != "object")
-          throw Error(`허용되지 않은 타입입니다. ${type} 타입을 입력하세요.`);
-      
         this["get"+name.charAt(0).toUpperCase() + name.slice(1)] = v;
       } else {
         if(typeof v != type)
